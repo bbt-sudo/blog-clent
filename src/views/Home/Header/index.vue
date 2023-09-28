@@ -41,7 +41,7 @@
 </template>
 
 <script setup lang='ts'>
-import { reactive, toRefs, onBeforeMount, onMounted, watchEffect, render, h, ref, Ref, onBeforeUnmount } from 'vue';
+import { reactive, toRefs, onBeforeMount, onMounted, watchEffect, h, ref, Ref, onBeforeUnmount } from 'vue';
 import Icon from '../../../components/Icon/index.vue'
 import { SearchOutlined,BellTwotone } from '@vicons/antd'
 import { ChatboxEllipses,People } from '@vicons/ionicons5'
