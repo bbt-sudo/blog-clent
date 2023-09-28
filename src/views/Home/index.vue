@@ -3,8 +3,7 @@
 </template>
 
 <script setup lang='ts'>
-import { ref, reactive, toRefs, onBeforeMount, onMounted, watchEffect, computed } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import {  reactive, toRefs, onBeforeMount, onMounted, watchEffect } from 'vue';
 import Header from './Header/index.vue'
 /**
 * 仓库
@@ -12,11 +11,9 @@ import Header from './Header/index.vue'
 /**
 * 路由对象
 */
-const route = useRoute();
 /**
 * 路由实例
 */
-const router = useRouter();
 //console.log('1-开始创建组件-setup')
 /**
 * 数据部分
