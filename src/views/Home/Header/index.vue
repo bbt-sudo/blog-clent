@@ -80,6 +80,7 @@ const options: Ref<any[]> = ref([
   }
 ])
 const handleSelect = (item: any) => {
+  console.log(item);
 }
 const handleClick = () => {
   const count: Ref<number> = ref(1)
