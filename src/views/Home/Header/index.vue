@@ -48,7 +48,6 @@ import anime from 'animejs'
 
 const title: Ref = ref('hello world')
 
-let bgAnimate: anime.AnimeInstance
 const icons: Ref<any[]> = ref([
   {
     name: 'BellTwotone',
@@ -139,7 +138,7 @@ onMounted(() => {
   //     }
   //   ],
   // })
-  bgAnimate = anime.timeline({
+  anime.timeline({
     loop: true,
     easing: 'easeOutElastic(1, .5)',
   })

@@ -11,7 +11,7 @@
 
 <script setup lang='ts'>
 import {  Ref,reactive, toRefs, onBeforeMount, onMounted, watchEffect, h, Component, ref } from 'vue';
-import { NIcon, type MenuOption, useMessage } from 'naive-ui'
+import { NIcon, type MenuOption } from 'naive-ui'
 import { RouterLink } from 'vue-router'
 import {
   Newspaper,
