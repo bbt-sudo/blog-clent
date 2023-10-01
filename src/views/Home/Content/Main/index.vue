@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang='ts'>
-import { reactive, toRefs, onBeforeMount, onMounted, watchEffect, Ref, ref, shallowRef } from 'vue';
+import { reactive, toRefs, onBeforeMount, onMounted, watchEffect, Ref, shallowRef } from 'vue';
 import LCard from '../../../../components/L-Card/index.vue'
 import { ArrowRedoCircle, Star,ChatboxEllipses,HeartSharp } from '@vicons/ionicons5'
 
