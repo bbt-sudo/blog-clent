@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang='ts'>
-import { ref, reactive, toRefs, onBeforeMount, onMounted, watchEffect, computed } from 'vue';
+import {reactive, toRefs, onBeforeMount, onMounted, watchEffect } from 'vue';
 /**
 * 仓库
 */
