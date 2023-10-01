@@ -1,12 +1,27 @@
 <template>
-  <Header></Header>
-  <Content></Content>
+  <div class="card-boc">
+     <n-card
+        :segmented="{
+          content: true,
+          footer: 'soft'
+        }"
+        hoverable="true"
+      >
+       
+        <template #header>
+          <slot name="card-header"></slot>
+        </template>
+        
+        <slot name="card-content"></slot>
+        <template #footer>
+          <slot name="card-footer"></slot>
+        </template>
+      </n-card>
+  </div>
 </template>
 
 <script setup lang='ts'>
-import {  reactive, toRefs, onBeforeMount, onMounted, watchEffect } from 'vue';
-import Header from './Header/index.vue'
-import Content from './Content/index.vue'
+import { ref, reactive, toRefs, onBeforeMount, onMounted, watchEffect, computed } from 'vue';
 /**
 * 仓库
 */

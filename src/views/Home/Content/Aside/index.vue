@@ -1,12 +1,9 @@
 <template>
-  <Header></Header>
-  <Content></Content>
+  <div class="aside-box">d</div>
 </template>
 
 <script setup lang='ts'>
-import {  reactive, toRefs, onBeforeMount, onMounted, watchEffect } from 'vue';
-import Header from './Header/index.vue'
-import Content from './Content/index.vue'
+import { reactive, toRefs, onBeforeMount, onMounted, watchEffect } from 'vue';
 /**
 * 仓库
 */
@@ -37,4 +34,9 @@ defineExpose({
 
 </script>
 <style scoped lang='scss'>
+.aside-box{
+  width: 19%;
+  margin-left: 1%;
+  background-color: aquamarine;
+}
 </style>

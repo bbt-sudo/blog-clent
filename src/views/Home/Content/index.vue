@@ -1,12 +1,17 @@
 <template>
-  <Header></Header>
-  <Content></Content>
+  <div class="content-box">
+    <Nav></Nav>
+    <Main></Main>
+    <Aside></Aside>
+  </div>
 </template>
 
 <script setup lang='ts'>
-import {  reactive, toRefs, onBeforeMount, onMounted, watchEffect } from 'vue';
-import Header from './Header/index.vue'
-import Content from './Content/index.vue'
+import {reactive, toRefs, onBeforeMount, onMounted, watchEffect } from 'vue';
+import Aside from "./Aside/index.vue";
+import Main from "./Main/index.vue";
+import Nav from "./Nav/index.vue";
+
 /**
 * 仓库
 */
@@ -37,4 +42,9 @@ defineExpose({
 
 </script>
 <style scoped lang='scss'>
+.content-box{
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+}
 </style>
