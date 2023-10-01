@@ -84,14 +84,7 @@ const icons = shallowRef([
     id: 1
   }
 ])
-const iconColor: Ref<string | null> = ref(null)
-const handleMouseEnter = (e:any) => {
-  console.log(e);
-  iconColor.value = '#9795f0'
-}
-const handelMouseout = (e:any)=>{
-  console.log(e);
-}
+
 const data = reactive({})
 onBeforeMount(() => {
   //console.log('2.组件挂载页面之前执行----onBeforeMount')
