@@ -5,7 +5,7 @@
           content: true,
           footer: 'soft'
         }"
-        hoverable="true"
+        hoverable
       >
        
         <template #header>

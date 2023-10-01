@@ -1,7 +1,7 @@
 <template>
   <div class="main-box">
     <div class="main-item">
-     <Card class="card" v-for="item in options" :key="item.id">
+     <l-card class="card" v-for="item in options" :key="item.id">
       <template #card-header>
         <n-avatar
           :style="{
@@ -14,22 +14,25 @@
       </template>
       <template #card-content><div  v-html="item.content" /></template>
       <template #card-footer>
-          <n-icon size="40">
-            <game-controller-outline />
-            {{ item.give }}
-          </n-icon>
+        <div class="icons">
+          <div class="icon" v-for="icon in icons" :key="icon.id">
+            <n-icon size="20"   :component="icon.icon" />
+            1
+          </div>
+        </div>
+
       </template>
-     </Card>
+     </l-card>
     </div>
   </div>
 </template>
 
 <script setup lang='ts'>
-import { reactive, toRefs, onBeforeMount, onMounted, watchEffect, Ref, ref } from 'vue';
-import Card from '../../../../components/Card/index.vue'
-import { GameControllerOutline } from '@vicons/ionicons5'
+import { reactive, toRefs, onBeforeMount, onMounted, watchEffect, Ref, ref, shallowRef } from 'vue';
+import LCard from '../../../../components/L-Card/index.vue'
+import { ArrowRedoCircle, Star,ChatboxEllipses,HeartSharp } from '@vicons/ionicons5'
 
-const options: Ref = ref([
+const options: Ref = shallowRef([
   {
     user: {
       headerUrl: 'm'
@@ -63,7 +66,32 @@ const options: Ref = ref([
     give: 10
   }
 ])
-
+const icons = shallowRef([
+  {
+    icon: Star,
+    id: 1
+  },
+  {
+    icon: HeartSharp,
+    id: 1
+  },
+  {
+    icon: ChatboxEllipses,
+    id: 1
+  },
+  {
+    icon: ArrowRedoCircle,
+    id: 1
+  }
+])
+const iconColor: Ref<string | null> = ref(null)
+const handleMouseEnter = (e:any) => {
+  console.log(e);
+  iconColor.value = '#9795f0'
+}
+const handelMouseout = (e:any)=>{
+  console.log(e);
+}
 const data = reactive({})
 onBeforeMount(() => {
   //console.log('2.组件挂载页面之前执行----onBeforeMount')
@@ -90,5 +118,18 @@ defineExpose({
 }
 .card{
   margin-bottom: 20px;
+}
+.icons{
+  display: flex;
+  justify-content: space-around;
+}
+.icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+  .icon:hover{
+  color: red;
 }
 </style>

@@ -1,5 +1,19 @@
 <template>
-  <div class="aside-box">d</div>
+  <div class="aside-box">
+    <div class="userInfo-box">
+      <div class="avatar-box">
+         <n-avatar
+          :style="{
+            color: 'yellow',
+            backgroundColor: 'red'
+          }"
+          class="avatar"
+          >
+            M
+          </n-avatar>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang='ts'>
@@ -37,6 +51,31 @@ defineExpose({
 .aside-box{
   width: 19%;
   margin-left: 1%;
-  background-color: aquamarine;
+  background-color: #fff;
+}
+.userInfo-box{
+  width: 90%;
+  height: 30%;
+  margin-left: 5%;
+  margin-top: 10px;
+}
+.avatar-box{
+  width: 80%;
+  height: 50%;
+  left: 10%;
+  position: relative;
+  background: url(../../../../assets/ren.svg) no-repeat ;
+  background-size: 50%;
+  background-position-x: center;
+  background-position-y: 110%;
+  background-color: red;
+  border-radius: 25px 50px 25px 25px;
+  display: flex;
+  justify-content: center;
+
+}
+.avatar{
+  position: absolute;
+  bottom: 0;
 }
 </style>

@@ -31,9 +31,6 @@ const menuOptions: MenuOption[] = [
         {
           to: {
             name: 'home',
-            params: {
-              lang: 'zh-CN'
-            }
           }
         },
         { default: () => '回家' }
@@ -48,9 +45,6 @@ const menuOptions: MenuOption[] = [
         {
           to: {
             name: 'home',
-            params: {
-              lang: 'zh-CN'
-            }
           }
         },
         { default: () => '文章' }
@@ -65,9 +59,6 @@ const menuOptions: MenuOption[] = [
           {
             to: {
               name: 'home',
-              params: {
-                lang: 'zh-CN'
-              }
             }
           },
           { default: () => '文章-1' }
@@ -84,9 +75,6 @@ const menuOptions: MenuOption[] = [
         {
           to: {
             name: 'home',
-            params: {
-              lang: 'zh-CN'
-            }
           }
         },
         { default: () => '视频' }
@@ -101,9 +89,6 @@ const menuOptions: MenuOption[] = [
             {
               to: {
                 name: 'home',
-                params: {
-                  lang: 'zh-CN'
-                }
               }
             },
             { default: () => '视频-1' }
@@ -134,6 +119,7 @@ defineExpose({
 .nav-box{
   width: 19%;
   margin-right: 1%;
+  background-color: #fff;
 }
 
 </style>

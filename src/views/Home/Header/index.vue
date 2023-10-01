@@ -217,7 +217,7 @@ defineExpose({
 </script>
 <style scoped lang="scss">
 .header-box {
-  width: 100vw;
+  width: 98vw;
   height: 10vh;
   opacity: 1;
   background: rgba(255, 255, 255, 1);
