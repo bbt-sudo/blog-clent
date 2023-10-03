@@ -1,18 +1,23 @@
 <template>
   <div class="main-box">
     <div class="main-item">
-     <l-card class="card" v-for="item in options" :key="item.id">
+     <l-card class="card" v-for="item in articles" :key="item.id">
       <template #card-header>
-        <n-avatar
-          :style="{
-            color: 'yellow',
-            backgroundColor: 'red'
-          }"
-        >
-          {{ item.user.headerUrl }}
-        </n-avatar>
+        <div class="main-header">
+          <n-avatar
+            :style="{
+              color: 'yellow',
+              backgroundColor: 'red'
+            }"
+          >
+            {{ item.author.head_Sculpture === null? 'null':item.author.head_Sculpture }}
+          </n-avatar>
+          <span>{{ item.author.nick_Name }}</span>
+        </div>
       </template>
-      <template #card-content><div  v-html="item.content" /></template>
+      <template #card-content><div  v-html="item.content" />
+        {{ console.log(item) }}
+      </template>
       <template #card-footer>
         <div class="icons">
           <div class="icon" v-for="icon in icons" :key="icon.id">
@@ -28,44 +33,13 @@
 </template>
 
 <script setup lang='ts'>
-import { reactive, toRefs, onBeforeMount, onMounted, watchEffect, Ref, shallowRef } from 'vue';
+import { reactive, toRefs, onBeforeMount, onMounted, watchEffect, shallowRef } from 'vue';
 import LCard from '../../../../components/L-Card/index.vue'
 import { ArrowRedoCircle, Star,ChatboxEllipses,HeartSharp } from '@vicons/ionicons5'
-
-const options: Ref = shallowRef([
-  {
-    user: {
-      headerUrl: 'm'
-    },
-    id: 1,
-    content: '<p>p</p>',
-    give: 10
-  },
-  {
-    user: {
-      headerUrl: 'x'
-    },
-    id: 2,
-    content: '<p>p</p>',
-    give: 10
-  },
-  {
-    user: {
-      headerUrl: 'd'
-    },
-    id: 3,
-    content: '<p>p</p>',
-    give: 10
-  },
-  {
-    user: {
-      headerUrl: '5'
-    },
-    id: 4,
-    content: '<p>p</p>',
-    give: 10
-  }
-])
+import {useHomeStore} from '../../../../store/HomeStoer/useHomeStore'
+import { storeToRefs } from 'pinia';
+const homeStore = useHomeStore()
+const { articles } = storeToRefs(homeStore)
 const icons = shallowRef([
   {
     icon: Star,
@@ -86,11 +60,13 @@ const icons = shallowRef([
 ])
 
 const data = reactive({})
-onBeforeMount(() => {
+onBeforeMount(async () => {
   //console.log('2.组件挂载页面之前执行----onBeforeMount')
+  await homeStore.getArticles()
 })
 onMounted(() => {
   //console.log('3.-组件挂载到页面之后执行-------onMounted')
+  console.log(1);
 })
 watchEffect(()=>{
 })
@@ -122,7 +98,12 @@ defineExpose({
   justify-content: center;
   gap: 4px;
 }
-  .icon:hover{
+.icon:hover{
   color: red;
+}
+.main-header{
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 </style>

@@ -1,11 +1,20 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { Ref, ref } from 'vue'
+import { articles } from '../../api/api'
 
 export const useHomeStore = defineStore({
   id: 'home',
   state: () => ({
     title: ref('Home'),
+    articles: ref([]) as Ref<Array<any>>,
   }),
-  actions: {},
+  actions: {
+    // 获取文章列表
+    async getArticles() {
+      articles.then((res) => {
+        this.articles = res.data.data
+      })
+    },
+  },
   getters: {},
 })
