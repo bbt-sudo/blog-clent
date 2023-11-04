@@ -1,21 +1,15 @@
 <template>
   <div class="aside-box">
     <div class="userInfo-box">
-      <div class="avatar-box">
-         <div class="avatar">
-          
-         </div>
-         <img src="../../../../assets/ren.svg" alt="">
-         <n-avatar
-          :style="{
-            color: 'yellow',
-            backgroundColor: 'red'
-          }"
-          class="n-avatar"
-          >
-            M
-          </n-avatar>
-      </div>
+      <n-avatar
+        :style="{
+          color: 'yellow',
+          backgroundColor: 'red'
+      }"
+      >
+        M
+      </n-avatar>
+      <p>nick_Name</p>
     </div>
   </div>
 </template>
@@ -56,41 +50,14 @@ defineExpose({
   width: 19%;
   margin-left: 1%;
   background-color: #fff;
-  position: relative;
 }
 .userInfo-box{
   width: 90%;
   height: 30%;
-  margin-left: 5%;
-  margin-top: 10px;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
-.avatar-box{
-  width: 100%;
-  height: 150px;
-  position: relative;
-}
-.avatar-box img {
-  position: absolute;
-  width: 50%;
-  left: 25%;
-  top: -30%;
-}
-.n-avatar{
-  position: absolute;
-  width:30%;
-  height: 30%;
-  left: 35%;
-  bottom: 0;
-  border-radius: 100%;
-}
-.avatar{
-  background-color: rgb(80, 203, 50);
-  width: 80%;
-  height: 80%;
-  left: 10%;
-  position: absolute;
-  margin-top: 5%;
-  border-radius: 10% 40% 10% 10%;
-}
+
 </style>

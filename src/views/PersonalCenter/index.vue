@@ -1,15 +1,9 @@
 <template>
-  <Header></Header>
-  <Content></Content>
-  <div class="footer">
-    <a href="https://beian.miit.gov.cn/" target="_blank">豫ICP备2023015622号-1</a>
-  </div>
+  <div ></div>
 </template>
 
 <script setup lang='ts'>
-import {  reactive, toRefs, onBeforeMount, onMounted, watchEffect } from 'vue';
-import Header from './Header/index.vue'
-import Content from './Content/index.vue'
+import { reactive, toRefs, onBeforeMount, onMounted, watchEffect } from 'vue';
 /**
 * 仓库
 */
@@ -40,10 +34,4 @@ defineExpose({
 
 </script>
 <style scoped lang='scss'>
-.footer{
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  text-align: center;
-}
 </style>

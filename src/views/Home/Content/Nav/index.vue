@@ -3,8 +3,7 @@
     <n-menu :options="menuOptions" 
        v-model:value="activeKey"
       :collapsed="collapsed"
-      :collapsed-width="64"
-      :collapsed-icon-size="22"  
+      :collapsed-icon-size="10"  
     />
   </div>
 </template>
@@ -120,6 +119,10 @@ defineExpose({
   width: 19%;
   margin-right: 1%;
   background-color: #fff;
+  :deep(.n-menu){
+    width: 100%;
+    font-size: 10px;
+  }
 }
 
 </style>

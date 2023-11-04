@@ -23,7 +23,7 @@
         </Icon>
       </div>
       <div class="user">
-        <n-dropdown :show="showDropdown" size="small" :options="options" @select="handleSelect">
+        <n-dropdown :show="showDropdown" size="small" :options="options " @select="handleSelect">
           <n-avatar
             :style="{
               color: 'yellow',
@@ -31,7 +31,7 @@
             }"
             @click="handleClick"
           >
-            未登录
+            l
           </n-avatar>
         </n-dropdown>
       </div>
@@ -45,6 +45,10 @@ import Icon from '../../../components/Icon/index.vue'
 import { SearchOutlined,BellTwotone } from '@vicons/antd'
 import { ChatboxEllipses,People } from '@vicons/ionicons5'
 import anime from 'animejs'
+import { useUserStore } from '../../../store/UserStore/useUserStore';
+import {  useRouter } from 'vue-router';
+
+const router = useRouter()
 
 const title: Ref = ref('hello world')
 
@@ -76,12 +80,25 @@ const handleMouseLeave =(item: { color: string; }) => {
 }
 
 const showDropdown = ref(false)
-const options: Ref<any[]> = ref([
+const options1: Ref<any[]> = ref([
   {
     label: '登录',
+    key: '1',
+    props:{
+      onClick:() => {
+        router.push('/login')
+      }
+    }
+  }
+])
+let options: Ref<any[]> = options1
+const options2: Ref<any[]> = ref([
+  {
+    label: '个人中心',
     value: '1',
   }
 ])
+
 const handleSelect = (item: any) => {
   console.log(item);
 }
@@ -97,6 +114,8 @@ const handleClick = () => {
     console.log(count.value + 1);
   }, 2000);
 };
+
+const userStore = useUserStore()
 
 
 
@@ -116,10 +135,17 @@ onBeforeUnmount(() => {
 * 数据部分
 */
 const data = reactive({})
-onBeforeMount(() => {
-  //console.log('2.组件挂载页面之前执行----onBeforeMount')
+onBeforeMount(async () => {
+  // console.log('2.组件挂载页面之前执行----onBeforeMount')
+  
 })
-onMounted(() => {
+onMounted( () => {
+  userStore.user()
+   if(userStore.id) {
+    options = options2
+   } else {
+    
+   }
   //console.log('3.-组件挂载到页面之后执行-------onMounted')
   // bgAnimate = anime({
   //   targets: '.logo',

@@ -12,8 +12,6 @@ export const useHomeStore = defineStore({
     // 获取文章列表
     async getArticles() {
       articles.then((res) => {
-        console.log(res)
-
         this.articles = res.data
       })
     },

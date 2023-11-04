@@ -2,9 +2,8 @@ import { createApp } from 'vue'
 import './style.scss'
 import App from './App.vue'
 import router from './router/index.ts'
-import { createPinia } from 'pinia'
+import pinia from './store/index.ts'
 import naive from 'naive-ui'
-
-const pinia = createPinia()
+import localStorage from './utils/storage.ts'
 
 createApp(App).use(router).use(pinia).use(naive).mount('#app')
